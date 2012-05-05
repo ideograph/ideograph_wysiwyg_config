@@ -14,7 +14,7 @@ function ideograph_wysiwyg_config_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'wysiwyw_sitewide';
-  $context->description = 'display blocks site-wide for the wysiwyw pofile';
+  $context->description = 'display blocks site-wide for the wysiwyw profile';
   $context->tag = 'blocks';
   $context->conditions = array(
     'sitewide' => array(
@@ -22,22 +22,21 @@ function ideograph_wysiwyg_config_context_default_contexts() {
         1 => 1,
       ),
     ),
-    'user' => array(
-      'values' => array(
-        'administrator' => 'administrator',
-        'contributor' => 'contributor',
-        'editor' => 'editor',
-      ),
-    ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'devel-switch_user' => array(
-          'module' => 'devel',
-          'delta' => 'switch_user',
+        'system-navigation' => array(
+          'module' => 'system',
+          'delta' => 'navigation',
           'region' => 'sidebar_first',
           'weight' => '-10',
+        ),
+        'user-login' => array(
+          'module' => 'user',
+          'delta' => 'login',
+          'region' => 'sidebar_first',
+          'weight' => '-9',
         ),
       ),
     ),
@@ -47,7 +46,7 @@ function ideograph_wysiwyg_config_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('blocks');
-  t('display blocks site-wide for the wysiwyw pofile');
+  t('display blocks site-wide for the wysiwyw profile');
   $export['wysiwyw_sitewide'] = $context;
 
   return $export;
